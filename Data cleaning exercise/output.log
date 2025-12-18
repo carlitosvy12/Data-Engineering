@@ -1,0 +1,96 @@
+======================================================================
+DATA CLEANING EXERCISE - E-COMMERCE CUSTOMER ORDERS
+======================================================================
+Started at: 2025-12-12 13:36:51
+
+[STEP 1] Descargando datos brutos...
+  - Datos descargados y guardados en raw_data.csv
+
+[STEP 2] Exploración inicial...
+  - Dimensiones (filas, columnas): (189, 10)
+  - Columnas: ['OrderID', 'CustomerName', 'Email', 'Phone', 'Country', 'OrderDate', 'Quantity', 'Price', 'CustomerAge', 'OrderStatus']
+
+  - Primeras filas:
+   OrderID   CustomerName              Email  ...  Price CustomerAge OrderStatus
+0     1001       John Doe     john@email.com  ...  19.99          28   Completed
+1     1002     jane smith     JANE@GMAIL.COM  ...  49.99          35   Completed
+2     1003       john doe     john@email.com  ...  19.99          28   Completed
+3     1004    Bob Johnson   bob.j@email.com   ...  99.99          45     Pending
+4     1006  Charlie Davis                NaN  ...  79.99     unknown   Completed
+
+[5 rows x 10 columns]
+
+  - Información del DataFrame:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 189 entries, 0 to 188
+Data columns (total 10 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   OrderID       189 non-null    int64  
+ 1   CustomerName  189 non-null    object 
+ 2   Email         165 non-null    object 
+ 3   Phone         184 non-null    object 
+ 4   Country       189 non-null    object 
+ 5   OrderDate     189 non-null    object 
+ 6   Quantity      189 non-null    int64  
+ 7   Price         168 non-null    float64
+ 8   CustomerAge   187 non-null    object 
+ 9   OrderStatus   189 non-null    object 
+dtypes: float64(1), int64(2), object(7)
+memory usage: 14.9+ KB
+None
+
+  - Valores nulos por columna:
+OrderID          0
+CustomerName     0
+Email           24
+Phone            5
+Country          0
+OrderDate        0
+Quantity         0
+Price           21
+CustomerAge      2
+OrderStatus      0
+dtype: int64
+
+[STEP 3] Identificando problemas de calidad de datos...
+  - Número de filas: 189
+  - Filas duplicadas: 0
+  - Nulos por columna:
+OrderID          0
+CustomerName     0
+Email           24
+Phone            5
+Country          0
+OrderDate        0
+Quantity         0
+Price           21
+CustomerAge      2
+OrderStatus      0
+dtype: int64
+
+[STEP 4] Limpiando datos...
+  - Edades inválidas encontradas: 30
+  - Filas eliminadas por cantidad negativa: 26
+  - Emails inválidos: 42
+  - Limpieza básica completada.
+
+[STEP 5] Validación final (data quality tests)...
+Resultados de los tests (RAW vs CLEAN):
+
+  - Accuracy: RAW = 44.44% | CLEAN = 51.24%
+  - Completeness: RAW = 87.30% | CLEAN = 100.00%
+  - Consistency: RAW = 53.44% | CLEAN = 100.00%
+  - Validity: RAW = 59.26% | CLEAN = 70.25%
+  - Uniqueness: RAW = 100.00% | CLEAN = 100.00%
+  - Timeliness: RAW = 62.96% | CLEAN = 70.25%
+
+[STEP 6] Guardando datos limpios...
+  - Archivo guardado como clean_data.csv
+
+[SUMMARY]
+  - Filas RAW:   189
+  - Filas CLEAN: 121
+  - Archivo limpio: clean_data.csv
+
+Completed at: 2025-12-12 13:36:51
